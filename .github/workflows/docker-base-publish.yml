@@ -22,6 +22,8 @@ jobs:
     uses: sdr-enthusiasts/common-github-workflows/.github/workflows/build_and_push_image.yml@main
     with:
       docker_build_file: ./Dockerfile-base
+      platform_linux_arm32v7_enabled: false
+      platform_linux_arm64v8_enabled: false
       platform_linux_amd64_enabled: true
       push_enabled: true
       build_nohealthcheck: false
