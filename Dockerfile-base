@@ -17,11 +17,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get -yq upgrade && \
 FROM --platform=linux/amd64 python:3.11-slim-bullseye as build-amd64
 COPY --from=compile-amd64 /opt/venv /opt/venv
 
-FROM --platform=linux/arm64 python:3.11-slim-bullseye as build-arm64
-COPY --from=compile-arm64 /opt/venv /opt/venv
-
-FROM --platform=linux/arm/v7 python:3.11-slim-bullseye as build-armv7
-COPY --from=compile-armv7 /opt/venv /opt/venv
 ######################################################################################
 
 # Select final stage based on TARGETARCH ARG
