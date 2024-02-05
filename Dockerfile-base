@@ -36,9 +36,6 @@ LABEL org.opencontainers.image.title="Kindle Comic Converter"
 
 ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /app
-Not working, trying in dockerfile
-RUN wget https://archive.org/download/kindlegen_linux_2_6_i386_v2_9/kindlegen_linux_2.6_i386_v2_9.tar.gz && \
-    tar -xzf kindlegen_linux_2.6_i386_v2_9.tar.gz -C /usr/local/bin kindlegen && rm kindlegen_linux_2.6_i386_v2_9.tar.gz
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get -yq upgrade && \
     apt-get install -y p7zip-full unrar-free  && \
     ln -s /app/kindlegen /bin/kindlegen && \
