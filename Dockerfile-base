@@ -38,6 +38,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /app
 ADD kindlegen.tar.gz .
 RUN chmod +x /app/kindlegen
+COPY /app/kindlegen /bin/kindlegen
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get -yq upgrade && \
     apt-get install -y p7zip-full unrar-free wget && \
     ln -s /app/kindlegen /bin/kindlegen && \
