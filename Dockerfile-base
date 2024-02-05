@@ -36,8 +36,11 @@ LABEL org.opencontainers.image.title="Kindle Comic Converter"
 
 ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /app
+COPY getKindlegen.sh .
+RUN chmod +x /app/getKindlegen.sh
+RUN /app/getKindlegen.sh
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get -yq upgrade && \
-    apt-get install -y p7zip-full unrar-free  && \
+    apt-get install -y p7zip-full unrar-free wget && \
     ln -s /app/kindlegen /bin/kindlegen && \
     echo docker-base-20230809 > /IMAGE_VERSION
 

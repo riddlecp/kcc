@@ -2,14 +2,14 @@
 
 ls -al
 
-ECHO "Downloading Kindlegen"
+echo "Downloading Kindlegen"
 wget https://archive.org/download/kindlegen_linux_2_6_i386_v2_9/kindlegen_linux_2.6_i386_v2_9.tar.gz 
 
-ECHO "Extracting Kindlegen binary to /usr/local/bin/"
-tar xzf kindlegen_linux_2.6_i386_v2_9.tar.gz -C /usr/local/bin kindlegen
+echo "Extracting Kindlegen binary to /usr/local/bin/"
+tar xzf kindlegen_linux_2.6_i386_v2_9.tar.gz kindlegen
 
-ECHO "Making executable"
-chmod +x /usr/local/bin/kindlegen
+echo "Making executable"
+chmod +x /app/kindlegen
 
-ECHO "Removing Kindlegen tar file"
+echo "Removing Kindlegen tar file"
 rm kindlegen_linux_2.6_i386_v2_9.tar.gz
