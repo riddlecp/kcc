@@ -14,7 +14,8 @@ LABEL org.opencontainers.image.title="Kindle Comic Converter"
 
 COPY . /opt/kcc
 #ADD kindlegen.tar.gz /usr/bin/
-RUN tar xzf kindlegen.tar.gz -C /usr/local/bin/ kindlegen && rm kindlegen.tar.gz
+RUN tar xzf kindlegen.tar.gz -C /usr/local/bin/ kindlegen 
+# rm kindlegen.tar.gz
 RUN cat /opt/kcc/kindlecomicconverter/__init__.py | grep version | awk '{print $3}' | sed "s/'//g" > /IMAGE_VERSION
 
 ENTRYPOINT ["/opt/kcc/kcc-c2e.py"]
